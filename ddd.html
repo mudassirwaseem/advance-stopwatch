@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Stopwatch</title>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <style> 
+            p {
+                font-size:30px;
+            }
+            #start:hover {
+                background-color:#FFD700;
+                border:2px solid;
+            }
+            #stop:hover {
+                background-color:#FFD700;
+                border:2px solid;
+            }
+            #clear:hover {
+                background-color:#FFD700;
+                border:2px solid;
+            }
+            #seconds {
+                background-color:#F0FFF0;
+            }
+            #tens {
+                background-color:#F0FFF0;
+            }
+            #start {
+                width:50px;
+                height:30px;
+                background-color:#483D8B;
+                border:2px solid #778899;
+            }
+            #stop {
+                width:50px;
+                height:30px;
+                background-color:	#2F4F4F;
+                border:2px solid #778899;
+            }
+            #clear {
+                width:50px;
+                height:30px;
+                background-color:#40E0D0;
+                border:2px solid #778899;
+            }
+        </style>
+    </head>
+    <body>
+<p><span id="seconds">00</span>:<span id="tens">00</span></p>
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+<button id="clear">Clear</button>
+<button id="lap">Lap</button>
+<ul id="laps"></ul>
+
+    <script>
+        window.onload = function () {
+  
+  var seconds = 00; 
+  var tens = 00; 
+  var aTens = document.getElementById("tens")
+  var aSeconds = document.getElementById("seconds")
+  var Start = document.getElementById('start');
+  var Stop = document.getElementById('stop');
+  var clear = document.getElementById('clear');
+  var Interval ;
+
+  Start.onclick = function() {
+    
+     clearInterval(Interval);
+     Interval = setInterval(startTimer, 10);
+  }
+  
+    Stop.onclick = function() {
+       clearInterval(Interval);
+  }
+  
+
+  clear.onclick = function() {
+     clearInterval(Interval);
+    tens = "00";
+  	seconds = "00";
+    aTens.innerHTML = tens;
+  	aSeconds.innerHTML = seconds;
+  }
+  
+   
+  
+  function startTimer () {
+    tens++; 
+    
+    if(tens < 9){
+      aTens.innerHTML = "0" + tens;
+    }
+    
+    if (tens > 9){
+      aTens.innerHTML = tens;
+      
+    } 
+    
+    if (tens > 99) {
+      console.log("seconds");
+      seconds++;
+      aSeconds.innerHTML = "0" + seconds;
+      tens = 0;
+      aTens.innerHTML = "0" + 0;
+    }
+    
+    if (seconds > 9){
+      aSeconds.innerHTML = seconds;
+    }
+  
+//   }
+//   var lastLap = { tens: 0, seconds: 0 };
+
+// Lap.onclick = function() {
+//   var lapSeconds = seconds - lastLap.seconds;
+//   var lapTens = tens - lastLap.tens;
+//   lastLap = {
+//     tens: tens,
+//     seconds: seconds
+//   };
+
+//   Laps.innerHTML += "<li>" + leftPad(lapSeconds) + ":" + leftPad(lapTens) + "</li>";
+// }
+
+// function leftPad(value) {
+//   return value < 10 ? ('0' + value) : value;
+// }
+ar Lap = document.getElementById('lap');
+var Laps = document.getElementById('laps');
+
+Lap.onclick = function() {
+  Laps.innerHTML += "<li>" + aTens.innerHTML + ":" + aSeconds.innerHTML + "</li>";
+}
+}
+
+    </script>
+
+    </body>
+</html>

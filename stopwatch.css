@@ -1,0 +1,33 @@
+#timerContainer {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    width:700px;
+    margin:260px auto;
+    min-height: 60px;
+    border-top:0px;
+  }
+  .timer, .reset {
+    float:left;
+    width: 54%;
+    padding: 20px 0;
+    font-size: 24px;
+    text-align:center;
+    color: #fff;
+    background: #18bb6f70;
+    cursor: pointer
+  }
+  .reset {
+    background: #2c51f888;
+    color: white;
+    width:14.9%;
+    border-left: 1px solid #3ba3b1;
+  }
+  .reset:hover {
+    background: #c1ca45;
+  }
+  .lighter {
+    background: rgb(145, 115, 52)
+  }
+  body{
+      background-color: rgba(241, 151, 67, 0.685);
+  }
